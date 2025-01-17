@@ -13,7 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String selectedGender = Gender.male.toString();
+  String selectedGender = 'male';
 
   // This widget is the root of your application.
   double height = 180;
@@ -47,13 +47,13 @@ class _HomePageState extends State<HomePage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        selectedGender = Gender.male.toString();
+                        selectedGender = 'male';
                       });
                     },
                     child: Container(
                       margin: const EdgeInsets.all(15.0),
                       decoration: BoxDecoration(
-                        color: selectedGender == Gender.male.toString()
+                        color: selectedGender == 'male'
                             ? kActiveCardCoulor
                             : kInactiveCardCoulor,
                         borderRadius: BorderRadius.circular(10.0),
@@ -81,13 +81,13 @@ class _HomePageState extends State<HomePage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        selectedGender = Gender.female.toString();
+                        selectedGender = 'female';
                       });
                     },
                     child: Container(
                       margin: const EdgeInsets.all(15.0),
                       decoration: BoxDecoration(
-                        color: selectedGender == Gender.female.toString() ? kActiveCardCoulor : kInactiveCardCoulor,
+                        color: selectedGender == 'female' ? kActiveCardCoulor : kInactiveCardCoulor,
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       child: Column(
@@ -297,10 +297,12 @@ class _HomePageState extends State<HomePage> {
           ),
           GestureDetector(
             onTap: () {
-              bmiCalculator = BMICalculator(height: height, weight: weight, gender: 'female');
+              bmiCalculator = BMICalculator(height: height, weight: weight, gender: selectedGender, age: age);
               double bmi = bmiCalculator!.calculateBMI();
               String bmiCategory = bmiCalculator!.getBMICategory();
               String message = bmiCalculator!.getBMIMassage();
+              String genderSpecificMessage = bmiCalculator!.getGenderSpecificMessage();
+              int genderAgeSpecific = bmiCalculator!.getAgeSpecificMessage();
 
               Navigator.push(
                 context,
@@ -309,6 +311,8 @@ class _HomePageState extends State<HomePage> {
                     bmi: bmi.roundToDouble(),
                     result: bmiCategory,
                     message: message,
+                    gender: genderSpecificMessage,
+                    age:genderAgeSpecific ,
                   ),
                 ),
               );

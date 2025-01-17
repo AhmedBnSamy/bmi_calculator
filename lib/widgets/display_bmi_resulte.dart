@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import '../constant.dart';
 
 class DisplayBmiResult extends StatelessWidget {
-  DisplayBmiResult({super.key, required this.bmi, required this.result, required this.message});
+  DisplayBmiResult({super.key, required this.bmi, required this.result, required this.message, required this.gender, required this.age});
 
   double bmi;
   String result;
   String message;
+  String gender ;
+  int age;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,6 @@ class DisplayBmiResult extends StatelessWidget {
         children: [
           Expanded(
             child: Container(
-              padding: const EdgeInsets.all(15.0),
               alignment: Alignment.center,
               child:  Text(
                 'Your Result',
@@ -32,7 +33,15 @@ class DisplayBmiResult extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 5,
+            child: Container(
+              alignment: Alignment.center,
+              child:  Text('$gender, \n Age: $age',
+                style: kTitleTextStyle.copyWith(fontSize: 30.0),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 6,
             child: Container(
               margin: const EdgeInsets.all(15.0),
               decoration: BoxDecoration(
