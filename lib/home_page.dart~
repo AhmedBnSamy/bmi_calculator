@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
                         selectedGender = 'male';
                       });
                     },
-                    child: CustomMaleCard(selectedGender: selectedGender),
+                    child: CustomGenderCard(selectedGender: selectedGender),
                   ),
                 ),
                 Expanded(
@@ -314,8 +314,8 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class CustomMaleCard extends StatelessWidget {
-  const CustomMaleCard({
+class CustomGenderCard extends StatelessWidget {
+  const CustomGenderCard({
     super.key,
     required this.selectedGender,
   });
