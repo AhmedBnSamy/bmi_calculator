@@ -64,3 +64,32 @@ class BMICalculator {
 }
 
 
+/*
+
+
+  ****
+  double calculateBMI() {
+    if (height == 0) {
+    }
+    return (weight / (height * height))*10000;
+  }
+
+
+  ****
+  * double calculateBMI() {
+    if (height <= 0) {
+      throw ArgumentError("Height must be greater than zero.");
+    }
+
+    double bmi = weight / (height * height);
+
+    // Adjust BMI calculation for gender if necessary
+    if (gender.toLowerCase() == "male") {
+      return bmi * 1.05; // Example adjustment for males
+    } else if (gender.toLowerCase() == "female") {
+      return bmi * 0.95; // Example adjustment for females
+    } else {
+      throw ArgumentError("Gender must be 'male' or 'female'.");
+    }
+  }
+*/
