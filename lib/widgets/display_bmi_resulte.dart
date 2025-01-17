@@ -41,7 +41,7 @@ class DisplayBmiResult extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 6,
+            flex: 5,
             child: Container(
               margin: const EdgeInsets.all(15.0),
               decoration: BoxDecoration(
