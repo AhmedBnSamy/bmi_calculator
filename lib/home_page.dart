@@ -50,7 +50,31 @@ class _HomePageState extends State<HomePage> {
                         selectedGender = 'male';
                       });
                     },
-                    child: CustomMaleCard(selectedGender: selectedGender),
+                    child: Container(
+                      margin: const EdgeInsets.all(15.0),
+                      decoration: BoxDecoration(
+                        color: selectedGender == 'male'
+                            ? kActiveCardCoulor
+                            : kInactiveCardCoulor,
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.male,
+                            size: 80.0,
+                          ),
+                          const SizedBox(
+                            height: 15.0,
+                          ),
+                          Text(
+                            'Male',
+                            style: kTitleTextStyle.copyWith(fontSize: 20.0),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
                 Expanded(
@@ -307,44 +331,6 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class CustomMaleCard extends StatelessWidget {
-  const CustomMaleCard({
-    super.key,
-    required this.selectedGender,
-  });
-
-  final String selectedGender;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(15.0),
-      decoration: BoxDecoration(
-        color: selectedGender == 'male'
-            ? kActiveCardCoulor
-            : kInactiveCardCoulor,
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.male,
-            size: 80.0,
-          ),
-          const SizedBox(
-            height: 15.0,
-          ),
-          Text(
-            'Male',
-            style: kTitleTextStyle.copyWith(fontSize: 20.0),
           ),
         ],
       ),
